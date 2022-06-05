@@ -1,4 +1,5 @@
 import MealItem from '../MealItem/MealItem';
+import Card from '../../../UI/Card/Card';
 
 import './AvailableMeals.css';
 
@@ -41,7 +42,9 @@ const AvailableMeals = (props) => {
 
     return (
         <section className='meals'>
-            <ul>{mealsList}</ul>
+            <Card>
+                <ul>{mealsList}</ul>
+            </Card>
         </section>
     )
 }
