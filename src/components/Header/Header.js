@@ -4,7 +4,7 @@ import './Header.css';
 
 import mealsImage from '../../assets/meals.jpg';
 
-const Header = (props) => {
+export default function Header(props) {
     return (
         <>
             <header className='header'>
@@ -17,5 +17,3 @@ const Header = (props) => {
         </>
     );
 }
-
-export default Header;

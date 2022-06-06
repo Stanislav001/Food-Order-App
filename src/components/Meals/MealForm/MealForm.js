@@ -5,7 +5,7 @@ import Input from '../../../UI/Input/Input';
 import './Input.css';
 import './MealForm.css';
 
-const MealForm = (props) => {
+export default function MealForm(props) {
     const [amountIsValid, setAmountIsValid] = useState(true);
 
     const inputAmountRef = useRef();
@@ -14,7 +14,7 @@ const MealForm = (props) => {
         event.preventDefault();
 
         const inputAmount = inputAmountRef.current.value;
-        const convertedInputAmount = +inputAmount;
+        const convertedInputAmount = Number(inputAmount);
 
         if (inputAmount.trim().length === 0 || convertedInputAmount < 1 || convertedInputAmount > 5) {
             setAmountIsValid(false);
@@ -44,5 +44,3 @@ const MealForm = (props) => {
         </form>
     )
 }
-
-export default MealForm;

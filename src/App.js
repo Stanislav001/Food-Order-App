@@ -1,11 +1,11 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 
-import Header from "./components/Header/Header";
-import Meals from "./components/Meals/Meals";
 import MyCart from "./UI/MyCart/MyCart";
+import Meals from "./components/Meals/Meals";
+import Header from "./components/Header/Header";
 import CartProvider from "./store/CartProvider";
 
-const App = () => {
+export default function App() {
   const [myCartIsShow, setMyCartIsShow] = useState(false);
 
   const showMyCartHandler = () => {
@@ -26,5 +26,3 @@ const App = () => {
     </CartProvider>
   );
 }
-
-export default App;

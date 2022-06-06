@@ -1,6 +1,6 @@
 import './MealsSummary.css';
 
-const MealsSummary = (props) => {
+export default function MealsSummary(props) {
     return (
         <section className='summary'>
             <h2>Delicious Food, Delivered To You</h2>
@@ -15,5 +15,3 @@ const MealsSummary = (props) => {
         </section>
     );
 }
-
-export default MealsSummary;

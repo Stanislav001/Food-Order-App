@@ -30,7 +30,7 @@ const DUMMY_MEALS = [
     },
 ];
 
-const AvailableMeals = (props) => {
+export default function AvailableMeals() {
     const mealsList = DUMMY_MEALS.map((meal) => (
         <MealItem
             key={meal.id}
@@ -49,5 +49,3 @@ const AvailableMeals = (props) => {
         </section>
     )
 }
-
-export default AvailableMeals;

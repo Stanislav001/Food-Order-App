@@ -1,7 +1,7 @@
 import AvailableMeals from "./AvailableMeals/AvailableMeals";
 import MealsSummary from "./MealsSummary/MealsSummary";
 
-const Meals = (props) => {
+export default function Meals() {
     return (
         <>
             <MealsSummary />
@@ -9,5 +9,3 @@ const Meals = (props) => {
         </>
     )
 }
-
-export default Meals;

@@ -6,7 +6,7 @@ import CartItem from './CartItem/CartItem';
 import Modal from '../Modal/Modal';
 import './MyCart.css';
 
-const MyCart = (props) => {
+export default function MyCart(props) {
     const cartCtx = useContext(CartContext);
 
     const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
@@ -51,5 +51,3 @@ const MyCart = (props) => {
         </Modal>
     );
 };
-
-export default MyCart;

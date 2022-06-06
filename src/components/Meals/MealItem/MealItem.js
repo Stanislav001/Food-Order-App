@@ -5,17 +5,17 @@ import MealForm from '../MealForm/MealForm';
 
 import './MealItem.css';
 
-const MealItem = (props) => {
+function MealItem({ id, price, name, description }) {
     const cartContext = useContext(CartContext);
 
-    const price = `${props.price.toFixed(2)}$`;
+    const inputPrice = `${price.toFixed(2)}$`;
 
     const addItemToCartHandler = (amount) => {
         const newItem = {
-            id: props.id,
-            name: props.name,
+            id,
+            name,
             amount: amount,
-            price: props.price
+            price
         };
 
         cartContext.addItem(newItem);
@@ -24,11 +24,11 @@ const MealItem = (props) => {
     return (
         <li className='meal'>
             <div>
-                <h3>{props.name}</h3>
+                <h3>{name}</h3>
                 <div className='description'>
-                    {props.description}
+                    {description}
                 </div>
-                <div className='price'>{price}</div>
+                <div className='price'>{inputPrice}</div>
             </div>
             <div>
                 <MealForm onAddToCart={addItemToCartHandler} />
