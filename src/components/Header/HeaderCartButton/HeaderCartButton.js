@@ -5,7 +5,7 @@ import CartContext from '../../../store/cart-context';
 
 import styles from './HeaderCartButton.module.css';
 
-export default function HeaderCartButton(props) {
+export default function HeaderCartButton({ onClick }) {
     const [buttonIsHighlighted, setButtonIsHighlighted] = useState(false);
 
     const cartContext = useContext(CartContext);
@@ -33,7 +33,7 @@ export default function HeaderCartButton(props) {
     }, [items]);
 
     return (
-        <button className={buttonStyles} onClick={props.onClick}>
+        <button className={buttonStyles} onClick={onClick}>
             <span className={styles.icon}>
                 <CartIcon />
             </span>

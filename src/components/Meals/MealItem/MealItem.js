@@ -5,7 +5,7 @@ import MealForm from '../MealForm/MealForm';
 
 import './MealItem.css';
 
-function MealItem({ id, price, name, description }) {
+export default function MealItem({ id, price, name, description }) {
     const cartContext = useContext(CartContext);
 
     const inputPrice = `${price.toFixed(2)}$`;
@@ -36,5 +36,3 @@ function MealItem({ id, price, name, description }) {
         </li>
     )
 }
-
-export default MealItem;

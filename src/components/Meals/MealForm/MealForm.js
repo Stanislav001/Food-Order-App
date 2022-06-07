@@ -5,7 +5,7 @@ import Input from '../../../UI/Input/Input';
 import './Input.css';
 import './MealForm.css';
 
-export default function MealForm(props) {
+export default function MealForm({ onAddToCart }) {
     const [amountIsValid, setAmountIsValid] = useState(true);
 
     const inputAmountRef = useRef();
@@ -21,7 +21,7 @@ export default function MealForm(props) {
             return;
         }
 
-        props.onAddToCart(convertedInputAmount);
+        onAddToCart(convertedInputAmount);
     };
 
     return (

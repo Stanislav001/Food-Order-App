@@ -6,7 +6,7 @@ import CartItem from './CartItem/CartItem';
 import Modal from '../Modal/Modal';
 import './MyCart.css';
 
-export default function MyCart(props) {
+export default function MyCart({ onClose }) {
     const cartCtx = useContext(CartContext);
 
     const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
@@ -36,14 +36,14 @@ export default function MyCart(props) {
     );
 
     return (
-        <Modal onClose={props.onClose}>
+        <Modal onClose={onClose}>
             {cartItems}
             <div className='total'>
                 <span>Total Amount</span>
                 <span>{totalAmount}</span>
             </div>
             <div className='actions'>
-                <button className='button--alt' onClick={props.onClose}>
+                <button className='button--alt' onClick={onClose}>
                     Close
                 </button>
                 {hasItems && <button className='button'>Order</button>}
