@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import Input from '../../../UI/Input/Input';
 
 import './Input.css';
-import './MealForm.css';
+import styles from './MealForm.module.css';
 
 export default function MealForm({ onAddToCart }) {
     const [amountIsValid, setAmountIsValid] = useState(true);
@@ -25,7 +25,7 @@ export default function MealForm({ onAddToCart }) {
     };
 
     return (
-        <form className='form' onSubmit={submitHandler}>
+        <form className={styles.form} onSubmit={submitHandler}>
             <Input
                 ref={inputAmountRef}
                 label='Amount'
