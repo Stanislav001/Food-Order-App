@@ -1,37 +1,46 @@
+import { useEffect, useState } from 'react';
+
+import { useHttp } from '../../../hooks/use-http';
+
 import MealItem from '../MealItem/MealItem';
 import Card from '../../../UI/Card/Card';
 
 import './AvailableMeals.css';
 
-const DUMMY_MEALS = [
-    {
-        id: 'm1',
-        name: 'Sushi',
-        description: 'Finest fish and veggies',
-        price: 22.99,
-    },
-    {
-        id: 'm2',
-        name: 'Schnitzel',
-        description: 'A german specialty!',
-        price: 16.5,
-    },
-    {
-        id: 'm3',
-        name: 'Barbecue Burger',
-        description: 'American, raw, meaty',
-        price: 12.99,
-    },
-    {
-        id: 'm4',
-        name: 'Green Bowl',
-        description: 'Healthy...and green...',
-        price: 18.99,
-    },
-];
+const baseUrl = 'https://foodorderapplication-8ddc6-default-rtdb.firebaseio.com/meals.json';
 
 export default function AvailableMeals() {
-    const mealsList = DUMMY_MEALS.map((meal) => (
+    const [meals, setMeals] = useState([]);
+    const { isLoading, error, sendRequest: fetchMeals } = useHttp();
+
+    useEffect(() => {
+        const transformTasks = (movie) => {
+            const loadedMeals = [];
+
+            for (const key in movie) {
+                loadedMeals.push({ id: key, name: movie[key].name, price: movie[key].price, description: movie[key].description });
+            }
+            setMeals(loadedMeals);
+        };
+
+        fetchMeals(
+            { url: baseUrl },
+            transformTasks
+        );
+    }, [fetchMeals]);
+
+    let errorContext;
+    let content;
+    if (error) {
+        console.log(error);
+        errorContext = <p>{error}</p>
+    }
+
+    if (isLoading) {
+        content = 'Loading all meals';
+    }
+
+    content = meals.map((meal) => (
         <MealItem
             key={meal.id}
             id={meal.id}
@@ -44,7 +53,8 @@ export default function AvailableMeals() {
     return (
         <section className='meals'>
             <Card>
-                <ul>{mealsList}</ul>
+                {error && errorContext}
+                <ul>{content}</ul>
             </Card>
         </section>
     )
