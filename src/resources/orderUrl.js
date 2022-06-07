@@ -1,0 +1,1 @@
+export const ORDER_URL = 'https://foodorderapplication-8ddc6-default-rtdb.firebaseio.com/realOrders.json'

@@ -1,0 +1,1 @@
+export const MEAL_ULR = 'https://foodorderapplication-8ddc6-default-rtdb.firebaseio.com/meals.json';
