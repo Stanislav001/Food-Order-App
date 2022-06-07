@@ -5,9 +5,8 @@ import { useHttp } from '../../../hooks/use-http';
 import MealItem from '../MealItem/MealItem';
 import Card from '../../../UI/Card/Card';
 
+import { MEAL_ULR } from '../../../resources/mealUrl';
 import './AvailableMeals.css';
-
-const baseUrl = 'https://foodorderapplication-8ddc6-default-rtdb.firebaseio.com/meals.json';
 
 export default function AvailableMeals() {
     const [meals, setMeals] = useState([]);
@@ -24,7 +23,7 @@ export default function AvailableMeals() {
         };
 
         fetchMeals(
-            { url: baseUrl },
+            { url: MEAL_ULR },
             transformTasks
         );
     }, [fetchMeals]);
