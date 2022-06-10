@@ -27,3 +27,9 @@
     object-fit: cover;
     transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
   }
+
+  a:hover,
+  a:active,
+  a.active {
+    color: #e6fcfc;
+  }
