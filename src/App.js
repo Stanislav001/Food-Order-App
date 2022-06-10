@@ -18,8 +18,9 @@ export default function App() {
 
   return (
     <CartProvider>
-      {myCartIsShow && <MyCart onClose={hideMyCartHandler} />} // if true this is rendering
+      {myCartIsShow && <MyCart onClose={hideMyCartHandler} />}
       <Header onClickMyCart={showMyCartHandler} />
+
       <main>
         <Meals />
       </main>
