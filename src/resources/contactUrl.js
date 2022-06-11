@@ -1,0 +1,1 @@
+export const CONTACT_ULR = 'https://foodorderapplication-8ddc6-default-rtdb.firebaseio.com/contactMessages.json';
