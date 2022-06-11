@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 import Input from '../../../UI/Input/Input';
 
@@ -25,22 +26,24 @@ export default function MealForm({ onAddToCart }) {
     };
 
     return (
-        <form className={styles.form} onSubmit={submitHandler}>
-            <Input
-                ref={inputAmountRef}
-                label='Amount'
-                input={{
-                    id: 'amount',
-                    type: 'number',
-                    min: '1',
-                    max: '5',
-                    step: '1',
-                    defaultValue: '1',
-                }}
-            />
-            <button>+Add</button>
+        <>
+            <form className={styles.form} onSubmit={submitHandler}>
+                <Input
+                    ref={inputAmountRef}
+                    label='Amount'
+                    input={{
+                        id: 'amount',
+                        type: 'number',
+                        min: '1',
+                        max: '5',
+                        step: '1',
+                        defaultValue: '1',
+                    }}
+                />
 
-            {!amountIsValid && <p>Enter amount in range (1-5)</p>}
-        </form>
+                <button className={styles.formButton}>+Add</button>
+                {!amountIsValid && <p>Enter amount in range (1-5)</p>}
+            </form>
+        </>
     )
 }

@@ -2,7 +2,7 @@
     text-align: right;
   }
   
-  .form button {
+  .formButton {
     font: inherit;
     cursor: pointer;
     background-color: #8a2b06;
@@ -12,9 +12,9 @@
     border-radius: 20px;
     font-weight: bold;
   }
-  
-  .form button:hover,
-  .form button:active {
+
+  .formButton:hover,
+  .formButton:active {
     background-color: #641e03;
     border-color: #641e03;
   }
