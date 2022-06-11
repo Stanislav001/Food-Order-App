@@ -2,15 +2,22 @@ import { useNavigate } from "react-router-dom";
 
 import ContactForm from "../components/ContactUs/ContactForm";
 
+import { CONTACT_ULR } from "../resources/contactUrl";
+
 export default function ContactUs() {
     const navigate = useNavigate();
 
-    function sendFormHandler(userData) {
+    const submitFormHandler = async (userData) => {
 
-        console.log(userData);
+        await fetch(CONTACT_ULR, {
+            method: 'POST',
+            body: JSON.stringify({
+                user: userData
+            }),
+        });
 
         navigate('/');
-    }
+    };
 
-    return (<ContactForm sendForm={sendFormHandler} />);
+    return (<ContactForm sendForm={submitFormHandler} />);
 }
