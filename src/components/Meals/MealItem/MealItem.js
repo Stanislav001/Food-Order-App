@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import CartContext from '../../../store/cart-context';
 import MealForm from '../MealForm/MealForm';
@@ -29,6 +30,9 @@ export default function MealItem({ id, price, name, description }) {
                     {description}
                 </div>
                 <div className={styles.price}>{inputPrice}</div>
+                <div className={styles.actions}>
+                    <Link className={styles.formButton} to={`/meals/${id}`}>View Details</Link>
+                </div>
             </div>
             <div>
                 <MealForm onAddToCart={addItemToCartHandler} />
