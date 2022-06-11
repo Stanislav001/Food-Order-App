@@ -8,18 +8,13 @@ const MainNavigation = () => {
             <nav className={classes.nav}>
                 <ul>
                     <li>
-                        <NavLink to='/' className={navData => navData.isActive ? classes.active : ''}>
-                            Home
+                        <NavLink to='/register' className={navData => navData.isActive ? classes.active : ''}>
+                            Register
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/about' className={navData => navData.isActive ? classes.active : ''}>
-                            About
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/contactUs' className={navData => navData.isActive ? classes.active : ''}>
-                            Contact Us
+                        <NavLink to='/login' className={navData => navData.isActive ? classes.active : ''}>
+                            Login
                         </NavLink>
                     </li>
                 </ul>
