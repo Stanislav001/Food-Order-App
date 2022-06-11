@@ -13,11 +13,11 @@ export default function AvailableMeals() {
     const { isLoading, error, sendRequest: fetchMeals } = useHttp();
 
     useEffect(() => {
-        const transformTasks = (movie) => {
+        const transformTasks = (meal) => {
             const loadedMeals = [];
 
-            for (const key in movie) {
-                loadedMeals.push({ id: key, name: movie[key].name, price: movie[key].price, description: movie[key].description });
+            for (const key in meal) {
+                loadedMeals.push({ id: key, name: meal[key].name, price: meal[key].price, description: meal[key].description });
             }
             setMeals(loadedMeals);
         };
