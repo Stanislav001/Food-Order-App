@@ -29,3 +29,17 @@
     color: #e6fcfc;
   }
   
+  .buttonNavigation {
+    margin-left: 1.5rem;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: black;
+    background-color: #8a2b06;
+    border: none;
+  }
+
+  .buttonNavigation:hover,
+  .buttonNavigation:active,
+  .buttonNavigation a.active {
+    color: #e6fcfc;
+  }
