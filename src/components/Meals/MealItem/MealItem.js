@@ -7,7 +7,7 @@ import CartContext from '../../../store/cart-context';
 import AuthContext from '../../../store/auth-context';
 import styles from './MealItem.module.css';
 
-export default function MealItem({ id, price, name, description, isFav, changeFavorite }) {
+export default function MealItem({ id, price, name, description, changeFavorite, isFav }) {
     const cartContext = useContext(CartContext);
     const authContext = useContext(AuthContext);
     const userIsLoggedIn = authContext.isLoggedIn;
@@ -42,9 +42,11 @@ export default function MealItem({ id, price, name, description, isFav, changeFa
                 </div>
             </div>
             <div>
-                <button className={styles.formButton} onClick={changeButtonHandler}>
-                    {isFav ? 'Remove from Favorites' : 'Add to Favorite'}
-                </button>
+                {userIsLoggedIn &&
+                    <button className={styles.formButton} onClick={changeButtonHandler}>
+                        {isFav ? 'Remove from Favorites' : 'Add to Favorite'}
+                    </button>
+                }
 
                 {userIsLoggedIn && <MealForm onAddToCart={addItemToCartHandler} />}
             </div>

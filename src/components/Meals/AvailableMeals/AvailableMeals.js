@@ -8,7 +8,8 @@ import { MEAL_ULR } from '../../../resources/mealUrl';
 import './AvailableMeals.css';
 
 export default function AvailableMeals() {
-    const [meals, setMeals] = useState([]);
+    const meals = JSON.parse(localStorage.getItem('favoritesMeals'));
+    const [mealsa, setMeals] = useState([]);
     const { isLoading, error, sendRequest: fetchMeals } = useHttp();
 
     function changeToFavoriteHandler(id) {
@@ -22,6 +23,7 @@ export default function AvailableMeals() {
                 ? { ...meal, isFav: !currentFav }
                 : meal
         );
+        localStorage.setItem('favoritesMeals', JSON.stringify(updatedMeals));
 
         setMeals(updatedMeals);
     };
