@@ -1,30 +1,14 @@
 import { useState, useEffect } from 'react';
 
-import Card from '../../../UI/Card/Card';
-import MealItem from '../MealItem/MealItem';
+import FavoriteItem from './FavItem/FavoriteItem';
 
-import { useHttp } from '../../../hooks/use-http';
-import { MEAL_ULR } from '../../../resources/mealUrl';
-import './AvailableMeals.css';
+import { useHttp } from '../../hooks/use-http';
+import { MEAL_ULR } from '../../resources/mealUrl';
+import styles from './FavoriteMeals.module.css';
 
-export default function AvailableMeals() {
+export default function FavoritesMeals() {
     const [meals, setMeals] = useState([]);
     const { isLoading, error, sendRequest: fetchMeals } = useHttp();
-
-    function changeToFavoriteHandler(id) {
-        const currentElement = meals.find(meal => meal.id === id);
-
-        const currentFav = currentElement.isFav
-        currentElement.isFav = !currentFav;
-
-        const updatedMeals = meals.map(meal =>
-            meal.id === 1
-                ? { ...meal, isFav: !currentFav }
-                : meal
-        );
-
-        setMeals(updatedMeals);
-    };
 
     useEffect(() => {
         const transformTasks = (meal) => {
@@ -53,24 +37,26 @@ export default function AvailableMeals() {
         content = 'Loading all meals';
     }
 
-    content = meals.map((meal) => (
-        <MealItem
+    const filteredMeals = meals.filter(meal => meal.isFav === true);
+
+    content = filteredMeals.map((meal) => (
+        <FavoriteItem
             key={meal.id}
             id={meal.id}
             name={meal.name}
             description={meal.description}
             price={meal.price}
             isFav={meal.isFav}
-            changeFavorite={changeToFavoriteHandler}
         />
     ));
 
     return (
-        <section className='meals'>
-            <Card>
-                {error && errorContext}
+        <div >
+            <h1 className={styles.favoriteTitle}>My Favorites meals</h1>
+            <section className='meals'>
                 <ul>{content}</ul>
-            </Card>
-        </section>
+            </section>
+        </div>
+
     )
 }

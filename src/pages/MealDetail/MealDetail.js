@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, Outlet } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { useHttp } from '../../hooks/use-http';
 import { MEAL_ULR } from '../../resources/mealUrl';
@@ -22,7 +22,6 @@ export default function MealDetail() {
                 loadedMeals.push({ id: key, name: meal[key].name, price: meal[key].price, description: meal[key].description });
 
                 if (key === id) {
-                    console.log('test if');
                     const res = { id: key, name: meal[key].name, price: meal[key].price, description: meal[key].description };
                     setMeal(res);
                 }

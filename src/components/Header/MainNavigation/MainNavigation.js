@@ -26,7 +26,13 @@ const MainNavigation = () => {
                             </NavLink>
                         </li>
                     )}
-
+                    {userIsLoggedIn && (
+                        <li>
+                            <NavLink to='/favoritesMeals' className={navData => navData.isActive ? classes.active : ''}>
+                                Favorites Meals
+                            </NavLink>
+                        </li>
+                    )}
                     {userIsLoggedIn && (
                         <li>
                             <button className={classes.buttonNavigation} onClick={logoutHandler}>Logout</button>

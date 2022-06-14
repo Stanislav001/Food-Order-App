@@ -11,9 +11,10 @@ import NotFound from './pages/NotFound';
 import ContactUs from './pages/ContactUs';
 import Footer from './pages/Footer/Footer';
 import MealDetails from './pages/MealDetail/MealDetail';
+import FavoriteMeals from './pages/FavoriteMeals/FavoriteMeals';
 
-import { AuthContextProvider } from './store/auth-context';
 import CartProvider from './store/CartProvider';
+import { AuthContextProvider } from './store/auth-context';
 
 import './index.css';
 
@@ -27,6 +28,7 @@ root.render(
           <Route path="/" element={<App />} />
           <Route path="/about" element={<About />} />
           <Route path='/meals/:id' element={<MealDetails />} />
+          <Route path='/favoritesMeals' element={<FavoriteMeals />} />
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path='*' element={<NotFound />} />
