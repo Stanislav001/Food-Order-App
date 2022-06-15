@@ -27,7 +27,7 @@ export default function MealItem({ id, price, name, description, changeFavorite,
 
     function changeButtonHandler() {
         changeFavorite(id);
-    }
+    };
 
     return (
         <li className={styles.meal}>
