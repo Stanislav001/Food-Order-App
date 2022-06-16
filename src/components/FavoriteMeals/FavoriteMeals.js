@@ -6,8 +6,6 @@ export default function FavoritesMeals() {
     const meals = JSON.parse(localStorage.getItem('favoritesMeals'));
     const favoritesMeals = meals.filter(meal => meal.isFav === true);
 
-    console.log(meals);
-    console.log(favoritesMeals);
     const content = favoritesMeals.map((meal) => (
         <FavoriteItem
             key={meal.id}

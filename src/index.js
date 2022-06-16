@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from "react-dom/client";
 
 import { Routes, Route } from "react-router-dom";
 import { BrowserRouter } from 'react-router-dom';
@@ -18,7 +18,8 @@ import { AuthContextProvider } from './store/auth-context';
 
 import './index.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
 root.render(
   <AuthContextProvider>
     <CartProvider>
